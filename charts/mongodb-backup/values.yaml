@@ -1,0 +1,79 @@
+# Default values for chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  repository: mongo
+  pullPolicy: IfNotPresent
+  tag: "4.4-focal"
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+backup:
+  host: ""
+  username: ""
+  password: ""
+  authenticationDatabase: "admin"
+
+  schedule: "0 0 * * *"
+  startingDeadlineSeconds: ""
+
+  # Whether to include the oplog flag
+  oplog: true
+
+  persistence:
+    enabled: false
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    # storageClass: "-"
+    annotations: {}
+    accessMode: ReadWriteOnce
+    size: 8Gi
+
+  ## Google Cloud Storage
+  # gcs:
+  #    serviceAccountSecret: influxdb-backup-key
+  #    serviceAccountSecretKey: key.json
+  #    destination: gs://bucket/influxdb
+
+  ## Azure
+  ## Secret is expected to have connection string stored in `connection-string` field
+  ## Existing container will be used or private one withing storage account will be created.
+  # azure:
+  #   storageAccountSecret: influxdb-backup-azure-key
+  #   destination_container: influxdb-container
+  #   destination_path: ""
+
+  ## Amazon S3 or compatible
+  ## Secret is expected to have AWS (or compatible) credentials stored in `credentials` field.
+  ## Please look at https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-where
+  ## for the credentials format.
+  ## The bucket should already exist.
+  # s3:
+  #   credentialsSecret: aws-credentials-secret
+  #   destination: s3://bucket/path
+  #   ## Optional. Specify if you're using an alternate S3 endpoint.
+  #   # endpointUrl: ""
