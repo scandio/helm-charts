@@ -21,24 +21,4 @@ entries:
     urls:
     - https://github.com/scandio/helm-charts/releases/download/mongodb-backup-0.1.1/mongodb-backup-0.1.1.tgz
     version: 0.1.1
-  - apiVersion: v2
-    created: "2021-11-29T10:33:39.562679255Z"
-    description: A Helm chart for backing up mongodb to S3
-    digest: c2e1118a0f49532648c75a759cc486a4ccbb4437c75ae33166cc355a11956197
-    home: https://github.com/scandio/helm-charts
-    keywords:
-    - mongodb
-    - database
-    - backup
-    maintainers:
-    - email: biskit1943@gmx.de
-      name: Maximilian Konter
-      url: https://m-konter.de
-    name: mongodb-backup
-    sources:
-    - https://github.com/scandio/helm-charts
-    type: application
-    urls:
-    - https://github.com/scandio/helm-charts/releases/download/mongodb-backup-0.1.0/mongodb-backup-0.1.0.tgz
-    version: 0.1.0
 generated: "2021-11-29T11:02:14.261914405Z"
