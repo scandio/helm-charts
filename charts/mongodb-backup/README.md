@@ -16,7 +16,7 @@ cluster.
 1. Add the Helm repository:
 
    ```bash
-   helm repo add scandio https://scandio.github.io/helm-charts/index.yaml
+   helm repo add scandio https://scandio.github.io/helm-charts
    ```
 
 2. Run the following command, providing a name for your release:

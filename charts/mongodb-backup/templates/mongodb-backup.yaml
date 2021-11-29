@@ -64,7 +64,7 @@ spec:
                 --authenticationDatabase {{ .Values.backup.authenticationDatabase }} \
                 --readPreference secondary \
                 --gzip \
-                --archive=/backup/mongodump_$(date +%Y%m%d_%H%M%S).gz"
+                --archive="/backup/mongodump_$(date +%Y%m%d_%H%M%S).gz"
             resources:
               {{- toYaml .Values.resources | nindent 14 }}
           containers:
